@@ -1,12 +1,12 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Tests\Formatter;
+namespace JordJD\CamelCaser\Tests\Formatter;
 
-use DivineOmega\CamelCaser\Formatter\CamelCaseTrait;
+use JordJD\CamelCaser\Formatter\CamelCaseTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \DivineOmega\CamelCaser\Formatter\CamelCaseTrait
+ * @coversDefaultClass \JordJD\CamelCaser\Formatter\CamelCaseTrait
  */
 class CamelCaseTraitTest extends TestCase
 {

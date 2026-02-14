@@ -1,6 +1,6 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Tests;
+namespace JordJD\CamelCaser\Tests;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;

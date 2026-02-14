@@ -1,6 +1,6 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Hasher;
+namespace JordJD\CamelCaser\Hasher;
 
 use ReflectionFunctionAbstract;
 

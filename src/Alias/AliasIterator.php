@@ -1,6 +1,6 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Alias;
+namespace JordJD\CamelCaser\Alias;
 
 use ArrayIterator;
 use IteratorIterator;

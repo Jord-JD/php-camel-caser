@@ -1,13 +1,13 @@
 <?php
 
-namespace DivineOmega\CamelCaser;
+namespace JordJD\CamelCaser;
 
-use DivineOmega\CamelCaser\Alias\Finder\AliasFinder;
-use DivineOmega\CamelCaser\Alias\Renderer\AliasRenderer;
-use DivineOmega\CamelCaser\Formatter\CamelCaseFormatter;
-use DivineOmega\CamelCaser\Formatter\FunctionFormatter;
-use DivineOmega\CamelCaser\Formatter\NamespacePrefixFormatter;
-use DivineOmega\CamelCaser\Hasher\Md5FunctionHasher;
+use JordJD\CamelCaser\Alias\Finder\AliasFinder;
+use JordJD\CamelCaser\Alias\Renderer\AliasRenderer;
+use JordJD\CamelCaser\Formatter\CamelCaseFormatter;
+use JordJD\CamelCaser\Formatter\FunctionFormatter;
+use JordJD\CamelCaser\Formatter\NamespacePrefixFormatter;
+use JordJD\CamelCaser\Hasher\Md5FunctionHasher;
 use ReflectionFunction;
 use RuntimeException;
 use SplFileObject;

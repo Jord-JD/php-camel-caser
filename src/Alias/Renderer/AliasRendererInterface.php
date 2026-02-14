@@ -1,8 +1,8 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Alias\Renderer;
+namespace JordJD\CamelCaser\Alias\Renderer;
 
-use DivineOmega\CamelCaser\Alias\AliasInterface;
+use JordJD\CamelCaser\Alias\AliasInterface;
 
 interface AliasRendererInterface
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Tests\Integration;
+namespace JordJD\CamelCaser\Tests\Integration;
 
-use DivineOmega\CamelCaser\Formatter\CamelCaseTrait;
+use JordJD\CamelCaser\Formatter\CamelCaseTrait;
 use PHPUnit\Framework\TestCase;
 use ReflectionFunction;
 use ReflectionParameter;
 use Throwable;
-use const DivineOmega\CamelCaser\EXCLUDE_DISABLED_FUNCTIONS;
+use const JordJD\CamelCaser\EXCLUDE_DISABLED_FUNCTIONS;
 
 /**
  * Assert that internal functions get a camel cased alias, when applicable.

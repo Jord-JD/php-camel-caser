@@ -1,8 +1,8 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Alias\Finder;
+namespace JordJD\CamelCaser\Alias\Finder;
 
-use DivineOmega\CamelCaser\Alias\AliasIteratorInterface;
+use JordJD\CamelCaser\Alias\AliasIteratorInterface;
 use ReflectionFunctionAbstract;
 
 interface AliasFinderInterface

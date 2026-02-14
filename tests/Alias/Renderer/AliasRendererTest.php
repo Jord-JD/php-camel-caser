@@ -1,17 +1,17 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Tests\Alias\Renderer;
+namespace JordJD\CamelCaser\Tests\Alias\Renderer;
 
-use DivineOmega\CamelCaser\Alias\AliasInterface;
-use DivineOmega\CamelCaser\Alias\Renderer\AliasRenderer;
-use DivineOmega\CamelCaser\Formatter\CamelCaseTrait;
+use JordJD\CamelCaser\Alias\AliasInterface;
+use JordJD\CamelCaser\Alias\Renderer\AliasRenderer;
+use JordJD\CamelCaser\Formatter\CamelCaseTrait;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use ReflectionFunction;
 use ReflectionFunctionAbstract;
 
 /**
- * @coversDefaultClass \DivineOmega\CamelCaser\Alias\Renderer\AliasRenderer
+ * @coversDefaultClass \JordJD\CamelCaser\Alias\Renderer\AliasRenderer
  */
 class AliasRendererTest extends TestCase
 {
@@ -102,11 +102,11 @@ class AliasRendererTest extends TestCase
                     );
                 },
                 [
-                    '\DivineOmega\CamelCaser\Tests\Fixture\foo_default_constant_value',
-                    '\DivineOmega\CamelCaser\Tests\Fixture\bar_default_value_available',
-                    '\DivineOmega\CamelCaser\Tests\Fixture\baz_parameter_optional',
-                    '\DivineOmega\CamelCaser\Tests\Fixture\quz_parameter_required',
-                    '\DivineOmega\CamelCaser\Tests\Fixture\quu_parameter_nullable',
+                    '\JordJD\CamelCaser\Tests\Fixture\foo_default_constant_value',
+                    '\JordJD\CamelCaser\Tests\Fixture\bar_default_value_available',
+                    '\JordJD\CamelCaser\Tests\Fixture\baz_parameter_optional',
+                    '\JordJD\CamelCaser\Tests\Fixture\quz_parameter_required',
+                    '\JordJD\CamelCaser\Tests\Fixture\quu_parameter_nullable',
                 ]
             ),
         ];

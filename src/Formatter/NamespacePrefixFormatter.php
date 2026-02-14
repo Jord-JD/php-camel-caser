@@ -1,6 +1,6 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Formatter;
+namespace JordJD\CamelCaser\Formatter;
 
 use ReflectionFunctionAbstract;
 

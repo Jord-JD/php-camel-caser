@@ -23,7 +23,7 @@
   },
   "autoload": {
     "psr-4": {
-      "DivineOmega\\CamelCaser\\": "src"
+      "JordJD\\CamelCaser\\": "src"
     },
     "files": [
       "autoload.php"
@@ -31,7 +31,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "DivineOmega\\CamelCaser\\Tests\\": "tests"
+      "JordJD\\CamelCaser\\Tests\\": "tests"
     },
     "files": [
       "tests/Fixture/functions.php"

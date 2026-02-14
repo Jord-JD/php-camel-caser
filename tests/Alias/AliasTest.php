@@ -1,13 +1,13 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Tests\Alias;
+namespace JordJD\CamelCaser\Tests\Alias;
 
-use DivineOmega\CamelCaser\Alias\Alias;
+use JordJD\CamelCaser\Alias\Alias;
 use PHPUnit\Framework\TestCase;
 use ReflectionFunction;
 
 /**
- * @coversDefaultClass \DivineOmega\CamelCaser\Alias\Alias
+ * @coversDefaultClass \JordJD\CamelCaser\Alias\Alias
  */
 class AliasTest extends TestCase
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Alias\Renderer;
+namespace JordJD\CamelCaser\Alias\Renderer;
 
-use DivineOmega\CamelCaser\Alias\AliasInterface;
-use DivineOmega\CamelCaser\Formatter\CamelCaseTrait;
+use JordJD\CamelCaser\Alias\AliasInterface;
+use JordJD\CamelCaser\Formatter\CamelCaseTrait;
 use ReflectionParameter;
 use ReflectionType;
 use RuntimeException;

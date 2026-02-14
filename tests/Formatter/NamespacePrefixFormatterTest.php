@@ -1,16 +1,16 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Tests\Formatter;
+namespace JordJD\CamelCaser\Tests\Formatter;
 
-use DivineOmega\CamelCaser\Formatter\FunctionFormatterInterface;
-use DivineOmega\CamelCaser\Formatter\NamespacePrefixFormatter;
-use DivineOmega\CamelCaser\Tests\CreateFunctionTrait;
+use JordJD\CamelCaser\Formatter\FunctionFormatterInterface;
+use JordJD\CamelCaser\Formatter\NamespacePrefixFormatter;
+use JordJD\CamelCaser\Tests\CreateFunctionTrait;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use ReflectionFunctionAbstract;
 
 /**
- * @coversDefaultClass \DivineOmega\CamelCaser\Formatter\NamespacePrefixFormatter
+ * @coversDefaultClass \JordJD\CamelCaser\Formatter\NamespacePrefixFormatter
  */
 class NamespacePrefixFormatterTest extends TestCase
 {

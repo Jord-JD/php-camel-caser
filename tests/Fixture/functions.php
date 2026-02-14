@@ -1,6 +1,6 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Tests\Fixture;
+namespace JordJD\CamelCaser\Tests\Fixture;
 
 use stdClass;
 

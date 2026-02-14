@@ -1,17 +1,17 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Tests\Alias\Finder;
+namespace JordJD\CamelCaser\Tests\Alias\Finder;
 
-use DivineOmega\CamelCaser\Alias\AliasIteratorInterface;
-use DivineOmega\CamelCaser\Alias\Finder\AliasFinder;
-use DivineOmega\CamelCaser\Formatter\FunctionFormatterInterface;
-use DivineOmega\CamelCaser\Tests\CreateFunctionTrait;
+use JordJD\CamelCaser\Alias\AliasIteratorInterface;
+use JordJD\CamelCaser\Alias\Finder\AliasFinder;
+use JordJD\CamelCaser\Formatter\FunctionFormatterInterface;
+use JordJD\CamelCaser\Tests\CreateFunctionTrait;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use ReflectionFunctionAbstract;
 
 /**
- * @coversDefaultClass \DivineOmega\CamelCaser\Alias\Finder\AliasFinder
+ * @coversDefaultClass \JordJD\CamelCaser\Alias\Finder\AliasFinder
  */
 class AliasFinderTest extends TestCase
 {

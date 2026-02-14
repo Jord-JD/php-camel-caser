@@ -1,14 +1,14 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Tests\Formatter;
+namespace JordJD\CamelCaser\Tests\Formatter;
 
-use DivineOmega\CamelCaser\Formatter\CamelCaseFormatter;
-use DivineOmega\CamelCaser\Tests\CreateFunctionTrait;
+use JordJD\CamelCaser\Formatter\CamelCaseFormatter;
+use JordJD\CamelCaser\Tests\CreateFunctionTrait;
 use PHPUnit\Framework\TestCase;
 use ReflectionFunctionAbstract;
 
 /**
- * @coversDefaultClass \DivineOmega\CamelCaser\Formatter\CamelCaseFormatter
+ * @coversDefaultClass \JordJD\CamelCaser\Formatter\CamelCaseFormatter
  */
 class CamelCaseFormatterTest extends TestCase
 {

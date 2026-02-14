@@ -1,14 +1,14 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Tests\Hasher;
+namespace JordJD\CamelCaser\Tests\Hasher;
 
-use DivineOmega\CamelCaser\Hasher\Md5FunctionHasher;
-use DivineOmega\CamelCaser\Tests\CreateFunctionTrait;
+use JordJD\CamelCaser\Hasher\Md5FunctionHasher;
+use JordJD\CamelCaser\Tests\CreateFunctionTrait;
 use PHPUnit\Framework\TestCase;
 use ReflectionFunctionAbstract;
 
 /**
- * @coversDefaultClass \DivineOmega\CamelCaser\Hasher\Md5FunctionHasher
+ * @coversDefaultClass \JordJD\CamelCaser\Hasher\Md5FunctionHasher
  */
 class Md5FunctionHasherTest extends TestCase
 {

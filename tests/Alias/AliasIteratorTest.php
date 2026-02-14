@@ -1,13 +1,13 @@
 <?php
 
-namespace DivineOmega\CamelCaser\Tests\Alias;
+namespace JordJD\CamelCaser\Tests\Alias;
 
-use DivineOmega\CamelCaser\Alias\AliasInterface;
-use DivineOmega\CamelCaser\Alias\AliasIterator;
+use JordJD\CamelCaser\Alias\AliasInterface;
+use JordJD\CamelCaser\Alias\AliasIterator;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \DivineOmega\CamelCaser\Alias\AliasIterator
+ * @coversDefaultClass \JordJD\CamelCaser\Alias\AliasIterator
  */
 class AliasIteratorTest extends TestCase
 {
