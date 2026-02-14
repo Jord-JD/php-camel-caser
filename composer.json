@@ -1,59 +1,65 @@
 {
-    "name": "divineomega/php-camel-caser",
-    "description": "Lets you use built-in PHP functions in camel case",
-    "type": "library",
-    "license": "LGPL-3.0-only",
-    "authors": [
-        {
-            "name": "Jordan Hall",
-            "email": "jordan@hall05.co.uk"
-        },
-        {
-            "name": "Jan-Marten de Boer",
-            "email": "github@johmanx.com"
-        }
-    ],
-    "require": {
-        "php": "^7.1",
-        "ext-json": ">=1.5"
+  "name": "jord-jd/php-camel-caser",
+  "description": "Lets you use built-in PHP functions in camel case",
+  "type": "library",
+  "license": "LGPL-3.0-only",
+  "authors": [
+    {
+      "name": "Jordan Hall",
+      "email": "jordan@hall05.co.uk"
     },
-    "require-dev": {
-        "mediact/testing-suite": "@stable",
-        "kint-php/kint": "^2.2",
-        "php-coveralls/php-coveralls": "^2.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "DivineOmega\\CamelCaser\\": "src"
-        },
-        "files": [
-            "autoload.php"
-        ]
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "DivineOmega\\CamelCaser\\Tests\\": "tests"
-        },
-        "files": [
-            "tests/Fixture/functions.php"
-        ]
-    },
-    "extra": {
-        "grumphp": {
-            "config-default-path": "vendor/mediact/testing-suite/config/default/grumphp.yml"
-        }
-    },
-    "archive": {
-        "exclude": [
-            "/.gitignore",
-            "/phpunit.xml",
-            "/phpmd.xml",
-            "/phpstan.neon",
-            "/phpcs.xml",
-            "/tests"
-        ]
-    },
-    "config": {
-        "sort-packages": true
+    {
+      "name": "Jan-Marten de Boer",
+      "email": "github@johmanx.com"
     }
+  ],
+  "require": {
+    "php": "^7.1",
+    "ext-json": ">=1.5"
+  },
+  "require-dev": {
+    "mediact/testing-suite": "@stable",
+    "kint-php/kint": "^2.2",
+    "php-coveralls/php-coveralls": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "DivineOmega\\CamelCaser\\": "src"
+    },
+    "files": [
+      "autoload.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "DivineOmega\\CamelCaser\\Tests\\": "tests"
+    },
+    "files": [
+      "tests/Fixture/functions.php"
+    ]
+  },
+  "extra": {
+    "grumphp": {
+      "config-default-path": "vendor/mediact/testing-suite/config/default/grumphp.yml"
+    },
+    "branch-alias": {
+      "dev-master": "3.0-dev"
+    }
+  },
+  "archive": {
+    "exclude": [
+      "/.gitignore",
+      "/phpunit.xml",
+      "/phpmd.xml",
+      "/phpstan.neon",
+      "/phpcs.xml",
+      "/tests"
+    ]
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "replace": {
+    "divineomega/php-camel-caser": "self.version"
+  }
 }
