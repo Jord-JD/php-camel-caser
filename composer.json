@@ -14,13 +14,12 @@
     }
   ],
   "require": {
-    "php": "^7.1",
+    "php": "^7.4 || ^8.0",
     "ext-json": ">=1.5"
   },
   "require-dev": {
-    "mediact/testing-suite": "@stable",
     "kint-php/kint": "^2.2",
-    "php-coveralls/php-coveralls": "^2.0"
+    "phpunit/phpunit": "^9.6"
   },
   "autoload": {
     "psr-4": {
@@ -39,9 +38,6 @@
     ]
   },
   "extra": {
-    "grumphp": {
-      "config-default-path": "vendor/mediact/testing-suite/config/default/grumphp.yml"
-    },
     "branch-alias": {
       "dev-master": "3.0-dev"
     }

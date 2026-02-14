@@ -221,11 +221,7 @@ FUNCTION
                     sprintf(
                         '%1$s %2$s$%3$s%4$s',
                         $parameter->hasType()
-                            ? sprintf(
-                                '%s%s',
-                                $parameter->getType()->allowsNull() ? '?' : '',
-                                $parameter->getType()
-                            )
+                            ? (string) $parameter->getType()
                             : '',
                         $parameter->isVariadic() ? '...' : '',
                         $name,

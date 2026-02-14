@@ -59,9 +59,7 @@ trait CreateFunctionTrait
     }
 
     /**
-     * @param string|string[] $originalClassName
-     *
-     * @return MockObject
+     * The host test case (PHPUnit\Framework\TestCase) already provides createMock().
+     * This trait intentionally relies on that implementation.
      */
-    abstract protected function createMock($originalClassName): MockObject;
 }
