@@ -2,7 +2,6 @@
 
 [![Build Status](https://travis-ci.org/Jord-JD/php-camel-caser.svg?branch=master)](https://travis-ci.org/Jord-JD/php-camel-caser)
 [![Coverage Status](https://coveralls.io/repos/github/Jord-JD/php-camel-caser/badge.svg?branch=master)](https://coveralls.io/github/Jord-JD/php-camel-caser?branch=master)
-[![StyleCI](https://github.styleci.io/repos/147511192/shield?branch=master)](https://github.styleci.io/repos/147511192)
 [![Packagist](https://img.shields.io/packagist/dt/jord-jd/php-camel-caser.svg)](https://packagist.org/packages/jord-jd/php-camel-caser/stats)
 
 This package lets you use built-in PHP functions in camel case.
@@ -33,4 +32,3 @@ inArray('Picard', ['Picard', 'Janeway']);   // true
 
 // and so on...
 ```
-
