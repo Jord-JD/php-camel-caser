@@ -21,6 +21,7 @@ class AliasIteratorTest extends TestCase
      * @covers ::__construct
      * @covers ::current
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('aliasProvider')]
     public function testIterator(AliasInterface ...$aliases): void
     {
         $subject = new AliasIterator(...$aliases);

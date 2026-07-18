@@ -20,6 +20,7 @@ class CamelCaseTraitTest extends TestCase
      *
      * @covers ::camelCase
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('stringProvider')]
     public function testCamelCase(string $original, string $expected): void
     {
         /** @var CamelCaseTrait $subject */

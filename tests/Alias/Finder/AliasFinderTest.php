@@ -29,6 +29,7 @@ class AliasFinderTest extends TestCase
      * @covers ::__construct
      * @covers ::__invoke
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('functionProvider')]
     public function testInvoke(
         int $expected,
         callable $aliasCallback,

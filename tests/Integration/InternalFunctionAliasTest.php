@@ -27,6 +27,7 @@ class InternalFunctionAliasTest extends TestCase
      *
      * @coversNothing
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('functionProvider')]
     public function testFunctionAlias(string $original, string $expected): void
     {
         $this->assertTrue(
@@ -50,6 +51,30 @@ class InternalFunctionAliasTest extends TestCase
             $aliasReflection->isUserDefined(),
             'Alias function must be user defined.'
         );
+    }
+
+    public function testAliasCanOmitOptionalArguments(): void
+    {
+        $this->assertSame(['answer' => 42], jsonDecode('{"answer":42}', true));
+    }
+
+    public function testAliasPreservesReferenceArguments(): void
+    {
+        $values = ['first', 'second'];
+
+        $this->assertSame('first', arrayShift($values));
+        $this->assertSame(['second'], $values);
+    }
+
+    public function testAliasForwardsCamelCasedNamedArguments(): void
+    {
+        if (PHP_VERSION_ID < 80000) {
+            $this->markTestSkipped('Named arguments require PHP 8.');
+        }
+
+        $result = eval('return arrayChunk(array: [5 => "a"], length: 1, preserveKeys: true);');
+
+        $this->assertSame([5 => 'a'], $result[0]);
     }
 
     /**
@@ -109,12 +134,17 @@ class InternalFunctionAliasTest extends TestCase
     private function functionHasValidSignature(string $function): bool
     {
         $reflection = new ReflectionFunction($function);
-        $parameters = array_map(
-            function (ReflectionParameter $parameter): string {
-                return $parameter->getName();
-            },
-            $reflection->getParameters()
-        );
+        $parameters = [];
+
+        foreach ($reflection->getParameters() as $parameter) {
+            $name = $parameter->getName();
+
+            if (!is_string($name) || $name === '') {
+                return false;
+            }
+
+            $parameters[] = $name;
+        }
 
         return $parameters === array_unique($parameters);
     }

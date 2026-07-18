@@ -30,9 +30,8 @@ class AliasRendererTest extends TestCase
      * @covers ::renderParameterDoc
      * @covers ::renderTypeDoc
      * @covers ::renderReturnTypeDoc
-     * @covers ::renderParameters
-     * @covers ::getDefaultParameterValue
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('aliasProvider')]
     public function testInvoke(AliasInterface ...$aliases): void
     {
         $subject = new AliasRenderer();

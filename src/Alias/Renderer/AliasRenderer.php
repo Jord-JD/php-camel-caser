@@ -30,8 +30,9 @@ class AliasRenderer implements AliasRendererInterface
             foreach ($group as $alias) {
                 try {
                     $code .= $this->renderFunction($alias);
-                } catch (RuntimeException $exception) {
-                    // Skip the erroneous function.
+                } catch (Throwable $exception) {
+                    // Some internal functions expose signatures that cannot be
+                    // represented consistently across supported PHP versions.
                     continue;
                 }
             }
@@ -80,7 +81,7 @@ class AliasRenderer implements AliasRendererInterface
          */
         function %4$s%2$s(%6$s)
         {
-            return %1$s(...func_get_args());
+%7$s
         }
     }
 
@@ -103,7 +104,10 @@ FUNCTION
                 $alias->getReflection()->getReturnType()
             ),
             $this->renderParameters(
-                str_repeat(' ', 8),
+                ...$alias->getReflection()->getParameters()
+            ),
+            $this->renderForwarder(
+                $alias->getOriginal(),
                 ...$alias->getReflection()->getParameters()
             )
         ).PHP_EOL;
@@ -180,105 +184,82 @@ FUNCTION
         );
     }
 
-    /**
-     * Render a list of parameters.
-     *
-     * @param string              $indent
-     * @param ReflectionParameter ...$parameters
-     *
-     * @throws RuntimeException When duplicate parameters are encountered.
-     *
-     * @return string
-     */
-    private function renderParameters(
-        string $indent,
-        ReflectionParameter ...$parameters
-    ): string {
-        $list = array_reduce(
-            $parameters,
-            function (
-                array $carry,
-                ReflectionParameter $parameter
-            ) use ($indent): array {
-                $name = static::camelCase(
-                    $parameter->getName()
-                );
+    private function renderParameters(ReflectionParameter ...$parameters): string
+    {
+        $rendered = [];
+        $names = [];
 
-                $value = $this->getDefaultParameterValue($parameter);
+        foreach ($parameters as $parameter) {
+            $name = static::camelCase($parameter->getName());
 
-                // @see https://bugs.php.net/bug.php?id=76918
-                if (array_key_exists($name, $carry)) {
-                    throw new RuntimeException(
-                        sprintf(
-                            'Encountered duplicate parameter "%s" for %s.',
-                            $name,
-                            $parameter->getDeclaringFunction()->getName()
-                        )
-                    );
-                }
+            if (isset($names[$name])) {
+                throw new RuntimeException('Cannot render an alias with duplicate parameter names.');
+            }
 
-                $carry[$name] = $indent.'    '.trim(
-                    sprintf(
-                        '%1$s %2$s$%3$s%4$s',
-                        $parameter->hasType()
-                            ? (string) $parameter->getType()
-                            : '',
-                        $parameter->isVariadic() ? '...' : '',
-                        $name,
-                        empty($value) ? '' : sprintf(' = %s', $value)
-                    )
-                );
-
-                return $carry;
-            },
-            []
-        );
-
-        $list = implode(','.PHP_EOL, $list);
-
-        if (strlen($list) > 0) {
-            $list = PHP_EOL.$list.PHP_EOL.$indent;
+            $names[$name] = true;
+            $rendered[] = sprintf(
+                '%s%s$%s%s',
+                $parameter->isPassedByReference() ? '&' : '',
+                $parameter->isVariadic() ? '...' : '',
+                $name,
+                $this->renderDefaultValue($parameter)
+            );
         }
 
-        return $list;
+        return implode(', ', $rendered);
     }
 
-    /**
-     * Get the default value of the given parameter.
-     *
-     * @param ReflectionParameter $parameter
-     *
-     * @return string
-     */
-    private function getDefaultParameterValue(
-        ReflectionParameter $parameter
-    ): string {
-        // Variadic parameter cannot have a default value.
-        // This needs to be checked before isOptional.
-        if ($parameter->isVariadic()) {
-            return '';
+    private function renderArguments(array $parameters): string
+    {
+        return implode(
+            ', ',
+            array_map(
+                function (ReflectionParameter $parameter): string {
+                    return ($parameter->isVariadic() ? '...' : '').'$'.static::camelCase($parameter->getName());
+                },
+                $parameters
+            )
+        );
+    }
+
+    private function renderForwarder(string $original, ReflectionParameter ...$parameters): string
+    {
+        if (count($parameters) === 0) {
+            return '            return '.$original.'();';
         }
 
-        // Cannot determine default value for internal functions.
-        if ($parameter->getDeclaringFunction()->isInternal()) {
+        $lines = ['            switch (func_num_args()) {'];
+
+        for ($argumentCount = 0; $argumentCount < count($parameters); ++$argumentCount) {
+            $lines[] = sprintf(
+                '                case %d: return %s(%s);',
+                $argumentCount,
+                $original,
+                $this->renderArguments(array_slice($parameters, 0, $argumentCount))
+            );
+        }
+
+        $lines[] = '                default: return '.$original.'('.$this->renderArguments($parameters).');';
+        $lines[] = '            }';
+
+        return implode(PHP_EOL, $lines);
+    }
+
+    private function renderDefaultValue(ReflectionParameter $parameter): string
+    {
+        if ($parameter->isVariadic() || !$parameter->isOptional()) {
             return '';
         }
 
         try {
-            if ($parameter->isDefaultValueConstant()) {
-                return $parameter->getDefaultValueConstantName();
-            }
-
             if ($parameter->isDefaultValueAvailable()) {
-                return json_encode($parameter->getDefaultValue());
+                return ' = '.var_export($parameter->getDefaultValue(), true);
             }
         } catch (Throwable $exception) {
-            return '';
+            // Fall back below for internal signatures without exposed defaults.
         }
 
-        // @codeCoverageIgnoreStart
-        // No scenario known for this state.
-        return '';
-        // @codeCoverageIgnoreEnd
+        return ' = null';
     }
+
 }
