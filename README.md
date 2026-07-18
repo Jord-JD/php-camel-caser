@@ -1,7 +1,6 @@
 # 🐪💼 PHP Camel Caser
 
-[![Build Status](https://travis-ci.org/Jord-JD/php-camel-caser.svg?branch=master)](https://travis-ci.org/Jord-JD/php-camel-caser)
-[![Coverage Status](https://coveralls.io/repos/github/Jord-JD/php-camel-caser/badge.svg?branch=master)](https://coveralls.io/github/Jord-JD/php-camel-caser?branch=master)
+[![Tests](https://github.com/Jord-JD/php-camel-caser/actions/workflows/tests.yml/badge.svg)](https://github.com/Jord-JD/php-camel-caser/actions/workflows/tests.yml)
 [![Packagist](https://img.shields.io/packagist/dt/jord-jd/php-camel-caser.svg)](https://packagist.org/packages/jord-jd/php-camel-caser/stats)
 
 This package lets you use built-in PHP functions in camel case.

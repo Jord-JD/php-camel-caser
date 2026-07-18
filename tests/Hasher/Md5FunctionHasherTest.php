@@ -24,6 +24,7 @@ class Md5FunctionHasherTest extends TestCase
      *
      * @covers ::__invoke
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('functionProvider')]
     public function testInvoke(
         string $expected,
         ReflectionFunctionAbstract ...$functions

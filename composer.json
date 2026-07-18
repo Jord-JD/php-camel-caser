@@ -18,7 +18,6 @@
     "ext-json": ">=1.5"
   },
   "require-dev": {
-    "kint-php/kint": "^2.2",
     "phpunit/phpunit": "^9.6"
   },
   "autoload": {
@@ -39,13 +38,13 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "3.0-dev"
+      "dev-master": "3.x-dev"
     }
   },
   "archive": {
     "exclude": [
       "/.gitignore",
-      "/phpunit.xml",
+      "/phpunit.xml.dist",
       "/phpmd.xml",
       "/phpstan.neon",
       "/phpcs.xml",
@@ -53,7 +52,10 @@
     ]
   },
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "kylekatarnls/update-helper": false
+    }
   },
   "replace": {
     "divineomega/php-camel-caser": "self.version"

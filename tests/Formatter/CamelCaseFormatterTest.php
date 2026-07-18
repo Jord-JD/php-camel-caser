@@ -24,6 +24,7 @@ class CamelCaseFormatterTest extends TestCase
      *
      * @covers ::__invoke
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('functionProvider')]
     public function testInvoke(
         ReflectionFunctionAbstract $function,
         string $expected
